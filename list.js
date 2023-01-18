@@ -1,14 +1,23 @@
 const form = document.querySelector("#list");
 const list = document.querySelector("#notes");
-const inputList = document.querySelector("#inputList");
+const input1 = document.querySelector("#inputTitle");
+const input2 = document.querySelector("#inputList");
 
+let title = document.querySelector("#title");
 
+// input.addEventListener("change", (e) => {
+//   console.log("nilai berubah");
+// });
+
+input1.addEventListener("input", (e) => {
+  title.innerText = input1.value;
+});
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  const noteValue = inputList.value;
+  const noteValue = input2.value;
   const newList = document.createElement("li");
   newList.innerText = noteValue;
   list.append(newList);
-  inputList.value = "";
+  input2.value = "";
 });
