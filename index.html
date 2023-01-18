@@ -15,11 +15,20 @@
       id="list"
       class="d-flex justify-content-center align-items-center flex-column mt-5 gap-3"
     >
+    <div class="alert alert-primary" role="alert">
+      Click your list for delete!
+    </div>
       <h1>To Do List</h1>
+      <input
+        id="inputTitle"
+        class="form-control-lg"
+        placeholder="Type your title"
+        name="note"
+      />
       <input
         id="inputList"
         class="form-control-lg"
-        placeholder="Create your list"
+        placeholder="Add your list"
         name="note"
       />
       <button class="btn btn-primary mt-3 fw-bold">SUBMIT</button>
@@ -27,7 +36,7 @@
     <div
       class="d-flex justify-content-center align-items-center flex-column mt-5 text-center"
     >
-      <h1 id="title">Your Notes</h1>
+      <h1 id="title">Your Title Notes</h1>
       <ul id="notes"></ul>
     </div>
     <script src="list.js"></script>
