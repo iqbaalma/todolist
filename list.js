@@ -21,3 +21,7 @@ form.addEventListener("submit", function (e) {
   list.append(newList);
   input2.value = "";
 });
+
+list.addEventListener("click", (e) => {
+  e.target.remove();
+});
