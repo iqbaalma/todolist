@@ -1,5 +1,5 @@
 class StorageAPI {
-    static checkStorageAPI() {
+    static checkAvailability() {
       if (typeof (Storage) === undefined) {
           window.alert('Your web browser does not support Web Storage API')
           return false
@@ -7,25 +7,24 @@ class StorageAPI {
       return true
     }
     
-    static saveToLocalStorage() {
-      if (checkStorageAPI()) {
-          const data_ = JSON.stringify(books);
-          localStorage.setItem(DATA_KEY, data_);
-          document.dispatchEvent(new Event(RENDER_PROG))
+    static save(identifier, DB) {
+      if (this.checkAvailability()) {
+          const _DB = JSON.stringify(DB)
+          localStorage.setItem(identifier, _DB)
       }
     }
     
-    static loadFromLocalStorage() {
-      const data_ = localStorage.getItem(DATA_KEY);
-      let data = JSON.parse(data_);
+    static load(identifier, DB) {
+      const _DB = localStorage.getItem(identifier)
+      let data = JSON.parse(_DB)
     
       if (data !== null) {
-          for (const book of data) {
-              books.push(book);
+          for (const list of data) {
+              DB.push(list)
           }
       }
-    
-      document.dispatchEvent(new Event(RENDER_PROG));
+
+      return DB
     }
 }
 
