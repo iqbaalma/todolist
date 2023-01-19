@@ -67,12 +67,18 @@ const main = () => {
       <span class="d-flex justify-content-between mb-3">
         ${dataObject.title}
         <div class="d-flex gap-2">
-          <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
           <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+          <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
         </div>
       </span>
       <ul class="list-group">
-        <li class="list-group-item">An item</li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>An item</span>
+          <div class="d-flex gap-2">
+            <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+            <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
+          </div>
+        </li>
         <li class="list-group-item">A second item</li>
       </ul>
     `
@@ -101,15 +107,13 @@ const main = () => {
   }
 
   if (lists.length !== 0) {
-    // container_.items = lists
-
+    container_.innerHTML = ''
     lists.forEach(list => {
       render(list, containerId)
     })
   }
 
   const process_ = () => {
-
     if (validateEmpty(input_.value) === true) {
       return
     } else {
@@ -120,7 +124,12 @@ const main = () => {
   
       console.log(lists)
 
-      
+      if (lists.length !== 0) {
+        container_.innerHTML = ''
+        lists.forEach(list => {
+          render(list, containerId)
+        })
+      }
     }
   }
 
