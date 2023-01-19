@@ -40,41 +40,7 @@ class ListItem extends HTMLElement {
         // const id = data.id,
         // title = data.title
     
-        const element = document.createElement('div')
-        element.innerHTML = ''
-        element.setAttribute('class', 'accordion-item')
-
-        const elementTitle = document.createElement('h2')
-        elementTitle.setAttribute('class', 'accordion-header')
-        elementTitle.setAttribute('id', `heading-${id}`)
-
-        const button = document.createElement('button')
-        button.setAttribute('class', 'accordion-button')
-        button.setAttribute('type', 'button')
-        button.setAttribute('data-bs-toggle', 'collapse')
-        button.setAttribute('data-bs-target', `#collapse-${id}`)
-        button.setAttribute('aria-expanded', 'true')
-        button.setAttribute('aria-controls', `collapse-${id}`)
-        button.innerHTML = title
-
-        const content = document.createElement('div')
-        content.setAttribute('class', `accordion-collapse collapse`)
-        content.setAttribute('id', `collapse-${id}`)
-        content.setAttribute('aria-labelledby', `heading-${id}`)
-        content.setAttribute('data-bs-parent', `#collapse-${parent}`)
-
-        const contentBody = document.createElement('div')
-        contentBody.setAttribute('class', 'accordion-body')
-        contentBody.innerHTML = ''
-        contentBody.innerHTML = title
-
-        content.append(contentBody)
-        elementTitle.append(button)
-        element.append(elementTitle, content)
-
-        element.setAttribute('id', `${id}`)
-
-        this.innerHTML = `${element}`
+        
     }
 }
 
