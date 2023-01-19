@@ -63,7 +63,19 @@ const main = () => {
     const contentBody = document.createElement('div')
     contentBody.setAttribute('class', 'accordion-body')
     contentBody.innerHTML = ''
-    contentBody.innerHTML = dataObject.title
+    contentBody.innerHTML = `
+      <span class="d-flex justify-content-between mb-3">
+        ${dataObject.title}
+        <div class="d-flex gap-2">
+          <button class="btn btn-primary btn-sm"><i class="bi bi-plus"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+        </div>
+      </span>
+      <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+      </ul>
+    `
 
     content.append(contentBody)
     elementTitle.append(button)
